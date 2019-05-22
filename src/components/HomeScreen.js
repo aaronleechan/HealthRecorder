@@ -11,7 +11,7 @@ class HomeScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <Header style={styles.headerContainer} title="This is header"/>
+                <Header parent={this.props} linkName="Profile" style={styles.headerContainer} title="This is header"/>
                 <Summary style={styles.summaryContainer} title="Summary"/>
                 <ScrollView style={styles.tabContainer}>
                     <Tab parent={this.props} linkName="Weight" title="Weight" imageLink={weight}/>

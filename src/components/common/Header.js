@@ -5,7 +5,7 @@ const Header = (props) =>{
     return(
         <View style={styles.container}>
             <Text style={styles.textStyle}>Health Recorder</Text>
-            <TouchableOpacity style={styles.profilePosition}>
+            <TouchableOpacity style={styles.profilePosition} onPress={()=>props.parent.navigation.navigate(props.linkName)}>
                 <Image source={require('../../images/profile.png')}/>
             </TouchableOpacity>
         </View>
