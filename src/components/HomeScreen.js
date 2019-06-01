@@ -16,11 +16,6 @@ class HomeScreen extends React.Component{
                 <ScrollView style={styles.tabContainer}>
                     <Tab parent={this.props} linkName="Weight" title="Weight" imageLink={weight}/>
                     <Tab parent={this.props} linkName="UricAcid" title="URIC ACID" imageLink={blood}/>
-                    {/* <Tab title="GLUCOSE" imageLink={blood}/>
-                    <Tab title="CHOLESTEROL" imageLink={blood}/>
-                    <Tab title="TRIGLYCERIDE, NONFASTING" imageLink={blood}/>
-                    <Tab title="HDL" imageLink={blood}/>
-                    <Tab title="LDL CALCULATED, NONFASTING" imageLink={blood}/> */}
                 </ScrollView>
             </View>
         )
