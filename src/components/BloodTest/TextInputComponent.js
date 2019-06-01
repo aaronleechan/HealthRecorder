@@ -1,30 +1,18 @@
 import React,{useState,useEffect} from 'react';
 import { View, StyleSheet, TextInput, Text,Button,TouchableOpacity,AsyncStorage } from 'react-native';
-import data from '../../../data/bloodtest/uricAcid.json'
-import createUricAcid from '../../graphQLQuery'
+import {createUricAcid} from '../../graphQLQuery'
+
 
 const TextInputComponent = (props) =>{
     const [inputValue,setinputValue] = useState("");
 
-    //Sames as Component Will Mount
-    useEffect(()=>{
-        fetchingData()
-    },[])
-
-    const fetchingData = async () => {
-        try{
-            // console.log(data)
-        }catch(error){
-            alert("Error")
-        }
-    }
-
     const saveData = async () => {
         try{
             let value = inputValue
+            let date = new Date();
             let obj={
                 'uricAcidLevel': value,
-                "createdAt": new Date()
+                "createdAt": date
             }
             createUricAcid(obj)
         }catch(error){
@@ -35,11 +23,10 @@ const TextInputComponent = (props) =>{
 
     return(
         <View style={styles.container}>
-            {/* <Text>This is Input Value {inputValue}</Text> */}
             <TextInput
                 value={inputValue}
                 onChangeText={e=>setinputValue(e)}
-                placeholder="Uric Acid Level"
+                placeholder="0.0"
                 type="text"
                 style={styles.textInputStyle}                
             />
@@ -55,17 +42,23 @@ export default TextInputComponent;
 
 const styles = StyleSheet.create({
     container:{
+        paddingTop: 30,
         flex: 1,
-        padding: 10,
         alignContent: 'stretch',
         flexDirection: 'column',
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderWidth: 0.5,
+        borderColor: '#d6d7da',
     },
     textInputStyle:{
         borderRadius: 10,
         borderWidth: 0.5,
         borderColor: '#d6d7da',
-        width: '80%',
-        fontSize: 30,
+        width: '90%',
+        fontSize: 25,
         alignSelf: 'center',
     },
     unitPosition:{
@@ -84,7 +77,7 @@ const styles = StyleSheet.create({
     textStyle:{
         paddingBottom: 15,
         alignSelf: 'center',
-        fontSize: 35,
+        fontSize: 25,
         color: 'white',
     }
 

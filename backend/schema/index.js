@@ -8,17 +8,30 @@ module.exports = buildSchema(`
         createdAt: String!
     }
 
+    type Weight{
+        _id: ID!
+        weight: String!
+        createdAt: String!
+    }
+
     input UricAcidInput{
         uricAcidLevel: String!
         createdAt: String!
     }
 
+    input WeightInput{
+        weight: String!
+        createdAt: String!
+    }
+
     type RootQuery{
         uricAcidlevel: [UricAcid!]!
+        weight: [Weight!]!
     }
 
     type RootMutation{
         createUricAcid(uricacidInput: UricAcidInput): UricAcid
+        createWeight(weightInput: WeightInput): Weight
     }
 
     schema{

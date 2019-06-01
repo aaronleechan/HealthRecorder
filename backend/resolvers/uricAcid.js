@@ -1,12 +1,10 @@
 const UricAcidModel = require('../models/uricacid');
 
 module.exports = {
-    uricacid: async(args,req)=>{
+    uricAcidlevel: async(args,req)=>{
         try{
-            const uricacid = await UricAcidModel.find();
-            return{
-                ...uricacid._doc
-            }
+            const uricacid = await UricAcidModel.find()
+            return uricacid
         }catch(err){
             throw err;
         }
